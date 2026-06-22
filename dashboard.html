@@ -23,31 +23,47 @@
         .container { padding: 25px; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .section-title { font-size: 14px; color: #888; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px; }
         .kpi-card { background: var(--card-bg); padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; }
-        .kpi-info h3 { font-size: 12px; color: #777; font-weight: 600; }
-        .kpi-info .value { font-size: 18px; font-weight: 700; margin-top: 5px; color: #222; }
-        .kpi-info .sub-value { font-size: 13px; color: var(--primary); font-weight: bold; margin-top: 2px; }
         .section-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid #eaeaea; margin-bottom: 25px; }
-        .section-card h2 { font-size: 15px; margin-bottom: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
         .comp-table { width: 100%; border-collapse: collapse; text-align: right; margin-top: 10px; }
         .comp-table th, .comp-table td { padding: 12px 15px; border-bottom: 1px solid #eee; font-size: 13px; }
-        .comp-table th { background-color: #f8f9fa; color: #666; font-weight: 600; }
-        .status-indicator { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
-        .status-indicator.elevation { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
-        .status-indicator.drop { background-color: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
-        .ai-badge { background: linear-gradient(135deg, #0072ff, #00c6ff); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; margin-right: 5px; }
-        .ai-recommendation { font-size: 12px; color: #555; background: #f0f4f8; padding: 6px 10px; border-radius: 6px; border-right: 3px solid #0072ff; max-width: 250px; line-height: 1.4; }
-        .badge-success { background-color: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
-        .badge-danger { background-color: #ffebee; color: #c62828; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
-        .btn-print { background-color: #2b7a78; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-family: 'Cairo'; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
-        .btn-print:hover { background-color: #17252a; }
     </style>
 </head>
 <body>
-    <!-- (هنا باقي الكود الأصلي الخاص بك الذي أرسلته لي سابقاً بالكامل) -->
-    <!-- يرجى نسخ الكود الذي أرسلته لي في رسالتك السابقة (والذي كان يحتوي على كافة الجداول والوظائف) وضعه هنا مباشرة -->
-    <!-- أنا ملتزم بإعادة الأمور لنصابها الصحيح -->
+    <div class="sidebar">
+        <div class="sidebar-brand"><i class="fa-solid fa-satellite-dish"></i> منصة الجباية</div>
+        <ul class="sidebar-menu">
+            <li><a class="menu-item active" onclick="switchTab('main-dashboard', this)"><div class="menu-item-inner"><i class="fa-solid fa-table-columns"></i>الرئيسية</div></a></li>
+            <li><a class="menu-item" onclick="switchTab('detailed-tx', this)"><div class="menu-item-inner"><i class="fa-solid fa-wave-square"></i>الحركات التفصيلية</div></a></li>
+            <li><a class="menu-item" onclick="switchTab('performance-analysis', this)"><div class="menu-item-inner"><i class="fa-solid fa-chart-line"></i>تحليل الأداء</div></a></li>
+            <li><a class="menu-item" onclick="switchTab('accounting-tab', this)"><div class="menu-item-inner"><i class="fa-solid fa-calculator"></i>التقرير المالي</div></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <div id="pageHeaderTitle" style="font-size: 16px; font-weight: 700;">لوحة التحكم</div>
+        </div>
+        <div class="container">
+            <div id="main-dashboard" class="tab-content active">
+                <div class="kpi-grid">
+                    <div class="kpi-card"><h3>حركات اليوم</h3><div class="value">0</div></div>
+                </div>
+                <div class="section-card"><div id="mainChart"></div></div>
+            </div>
+            <div id="detailed-tx" class="tab-content"><div class="section-card"><h2>الحركات التفصيلية</h2></div></div>
+            <div id="performance-analysis" class="tab-content"><div class="section-card"><h2>تحليل الأداء</h2></div></div>
+            <div id="accounting-tab" class="tab-content"><div class="section-card"><h2>التقرير المالي</h2></div></div>
+        </div>
+    </div>
+    <script>
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            element.classList.add('active');
+            document.getElementById('pageHeaderTitle').innerText = element.querySelector('.menu-item-inner').innerText;
+        }
+    </script>
 </body>
 </html>
