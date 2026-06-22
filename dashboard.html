@@ -25,9 +25,10 @@
         .tab-content.active { display: block; }
         .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px; }
         .kpi-card { background: var(--card-bg); padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; }
+        .kpi-info h3 { font-size: 12px; color: #777; font-weight: 600; }
+        .kpi-info .value { font-size: 18px; font-weight: 700; margin-top: 5px; color: #222; }
+        .kpi-info .sub-value { font-size: 13px; color: var(--primary); font-weight: bold; margin-top: 2px; }
         .section-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid #eaeaea; margin-bottom: 25px; }
-        .comp-table { width: 100%; border-collapse: collapse; text-align: right; margin-top: 10px; }
-        .comp-table th, .comp-table td { padding: 12px 15px; border-bottom: 1px solid #eee; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -42,12 +43,13 @@
     </div>
     <div class="main-content">
         <div class="header">
-            <div id="pageHeaderTitle" style="font-size: 16px; font-weight: 700;">لوحة التحكم</div>
+            <div id="pageHeaderTitle" style="font-size: 16px; font-weight: 700;">مرحباً بك مجدداً في لوحة التحكم</div>
         </div>
         <div class="container">
             <div id="main-dashboard" class="tab-content active">
                 <div class="kpi-grid">
-                    <div class="kpi-card"><h3>حركات اليوم</h3><div class="value">0</div></div>
+                    <div class="kpi-card"><div class="kpi-info"><h3>حركات اليوم</h3><div class="value">0</div></div></div>
+                    <div class="kpi-card"><div class="kpi-info"><h3>حركات الأسبوع</h3><div class="value">226</div></div></div>
                 </div>
                 <div class="section-card"><div id="mainChart"></div></div>
             </div>
@@ -64,6 +66,9 @@
             element.classList.add('active');
             document.getElementById('pageHeaderTitle').innerText = element.querySelector('.menu-item-inner').innerText;
         }
+        // إضافة الرسم البياني
+        var options = { chart: { type: 'area', height: 300, fontFamily: 'Cairo', toolbar: {show:false} }, series: [{ name: 'المبلغ الإجمالي', data: [30000000, 50000000, 45000000, 90000000, 55000000, 85000000, 40000000] }], xaxis: { categories: ['01-06', '04-06', '08-06', '12-06', '16-06', '20-06', '22-06'] }, colors: ['#2b7a78'], stroke: { curve: 'smooth', width: 2 } };
+        var chart = new ApexCharts(document.querySelector("#mainChart"), options); chart.render();
     </script>
 </body>
 </html>
