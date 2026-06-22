@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "transactions": [
+    { "location": "مصفى كربلاء", "amount": 250000000, "status": "ناجحة", "created_at": "2026-06-15" },
+    { "location": "مصفى كربلاء", "amount": 180000000, "status": "ناجحة", "created_at": "2026-05-10" },
+    { "location": "بلدية الهندية", "amount": 140000000, "status": "ناجحة", "created_at": "2026-06-12" },
+    { "location": "بلدية الهندية", "amount": 130000000, "status": "ناجحة", "created_at": "2026-05-14" },
+    { "location": "بلدية الجدول الغربي", "amount": 95000000, "status": "ناجحة", "created_at": "2026-06-18" },
+    { "location": "بلدية الجدول الغربي", "amount": 88000000, "status": "ناجحة", "created_at": "2026-05-05" },
+    { "location": "زراعة كربلاء", "amount": 120000000, "status": "ناجحة", "created_at": "2026-06-20" },
+    { "location": "زراعة كربلاء", "amount": 115000000, "status": "ناجحة", "created_at": "2026-05-22" },
+    { "location": "جامعة كربلاء", "amount": 310000000, "status": "ناجحة", "created_at": "2026-06-11" },
+    { "location": "جامعة كربلاء", "amount": 290000000, "status": "ناجحة", "created_at": "2026-05-09" },
+    { "location": "مجاري كربلاء", "amount": 165000000, "status": "ناجحة", "created_at": "2026-06-14" },
+    { "location": "مجاري كربلاء", "amount": 150000000, "status": "ناجحة", "created_at": "2026-05-19" },
+    { "location": "ناحية الخيرات", "amount": 75000000, "status": "ناجحة", "created_at": "2026-06-02" },
+    { "location": "ناحية الخيرات", "amount": 70000000, "status": "ناجحة", "created_at": "2026-05-12" },
+    { "location": "بلدية كربلاء", "amount": 420000000, "status": "ناجحة", "created_at": "2026-06-21" },
+    { "location": "بلدية كربلاء", "amount": 390000000, "status": "ناجحة", "created_at": "2026-05-25" }
+  ]
+}
