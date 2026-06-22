@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة الجباية</title>
+    <title>منصة الجباية الرقمية - شركة الساقي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
         body { margin: 0; font-family: 'Cairo', sans-serif; display: flex; height: 100vh; background: #f8f9fa; }
-        .sidebar { width: 280px; background: #fff; border-left: 1px solid #eee; display: flex; flex-direction: column; }
+        .sidebar { width: 280px; background: #fff; border-left: 1px solid #eee; display: flex; flex-direction: column; flex-shrink: 0; }
         .sidebar-brand { padding: 20px; text-align: center; color: #2b7a78; font-weight: bold; font-size: 18px; border-bottom: 1px solid #eee; }
         .menu { list-style: none; padding: 0; }
         .menu-item { padding: 15px 20px; color: #555; text-decoration: none; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
@@ -48,8 +49,23 @@
         <div class="card"><h3>حركات الشهر</h3><p style="font-weight:bold; font-size: 20px;">889</p><small>738,969,741 د.ع</small></div>
         <div class="card"><h3>حركات السنة</h3><p style="font-weight:bold; font-size: 20px;">3,379</p><small>2,661,575,321 د.ع</small></div>
     </div>
-    <div class="card" style="height: 300px;"><h3>التقرير اليومي للمنصة</h3></div>
+    
+    <div class="card" id="chart-area" style="height: 350px;">
+        <h3>التقرير اليومي للمنصة</h3>
+        <div id="chart"></div>
+    </div>
 </div>
+
+<script>
+    var options = {
+        chart: { type: 'area', height: 250, toolbar: {show: false}, fontFamily: 'Cairo' },
+        series: [{ name: 'المبلغ', data: [30000000, 50000000, 45000000, 90000000, 55000000, 85000000, 40000000] }],
+        xaxis: { categories: ['01-06', '04-06', '08-06', '12-06', '16-06', '20-06', '22-06'] },
+        colors: ['#2b7a78'],
+        fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.7, opacityTo: 0.3 } }
+    };
+    new ApexCharts(document.querySelector("#chart"), options).render();
+</script>
 
 </body>
 </html>
